@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".profile.ProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp">
+
+        <TextView
+            android:id="@+id/tv_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile"
+            android:textColor="@color/teal_700"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="32dp"
+            android:src="@mipmap/me"
+            app:layout_constraintTop_toBottomOf="@+id/tv_profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_name_title"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/name"
+            android:textSize="12sp"
+            android:textColor="@color/black_100"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/iv_profile"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/tulus_prabudi"
+            android:textSize="12sp"
+            android:textColor="@color/black_100"
+            app:layout_constraintTop_toTopOf="@+id/tv_name_title"
+            app:layout_constraintStart_toEndOf="@+id/tv_name_title"/>
+
+        <TextView
+            android:id="@+id/tv_age_title"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/age"
+            android:textSize="12sp"
+            android:textColor="@color/black_100"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/_30"
+            android:textSize="12sp"
+            android:textColor="@color/black_100"
+            app:layout_constraintTop_toTopOf="@+id/tv_age_title"
+            app:layout_constraintStart_toEndOf="@+id/tv_age_title"/>
+
+        <TextView
+            android:id="@+id/tv_job_title"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/job"
+            android:textSize="12sp"
+            android:textColor="@color/black_100"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/tv_age_title"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_job"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/android_developer"
+            android:textSize="12sp"
+            android:textColor="@color/black_100"
+            app:layout_constraintTop_toTopOf="@+id/tv_job_title"
+            app:layout_constraintStart_toEndOf="@+id/tv_job_title"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

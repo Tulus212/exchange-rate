@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Exchange Rate</string>
+    <string name="app_version">Version 1.0</string>
+    <string name="base_currency">Base Currency</string>
+    <string name="converter">Converter</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="EUR">EUR</string>
+    <string name="IDR">IDR</string>
+    <string name="value_exm">1</string>
+    <string name="Europe">Europe</string>
+    <string name="Indonesia">Indonesia</string>
+    <string name="name">Name</string>
+    <string name="tulus_prabudi">Tulus Prabudi</string>
+    <string name="age">Age</string>
+    <string name="_30">30</string>
+    <string name="job">Job</string>
+    <string name="android_developer">Android Developer</string>
+</resources>
