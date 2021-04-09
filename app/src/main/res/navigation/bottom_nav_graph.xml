@@ -16,7 +16,15 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_homeFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="app.prabudiworks.exchangerate.history.HistoryFragment"
+        android:label="history_profile"
+        tools:layout="@layout/fragment_history"/>
     <fragment
         android:id="@+id/profileFragment"
         android:name="app.prabudiworks.exchangerate.profile.ProfileFragment"

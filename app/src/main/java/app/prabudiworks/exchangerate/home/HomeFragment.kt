@@ -1,6 +1,11 @@
 package app.prabudiworks.exchangerate.home
 
-import androidx.core.content.ContextCompat
+import android.os.Handler
+import android.os.Looper
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
+import android.view.View
 import androidx.fragment.app.viewModels
 import app.prabudiworks.common.app.AppFragment
 import app.prabudiworks.common.app.HasObservers
@@ -16,6 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : AppFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home),
     HasViews, HasObservers {
 
+    private var mData = ArrayList<ConverterResponse>()
     override val viewModel: HomeViewModel by viewModels()
 
     private val mDataAdapter by lazy {
@@ -74,6 +80,53 @@ class HomeFragment : AppFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fr
             it.setHasFixedSize(true)
             it.adapter = mDataAdapter
         }
+
+        dataBinding.etInput.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if(s!!.isNotEmpty())
+                    changedata(s)
+                else {
+                    mDataAdapter.submitList(mData)
+                    mDataAdapter.notifyDataSetChanged()
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
+
+        viewModel.converterList.observe(this){
+            Handler(Looper.getMainLooper())
+                .postDelayed({
+                    if (it.isEmpty()) {
+                        dataBinding.grpConverter.visibility = View.GONE
+                        dataBinding.llLoading.visibility = View.VISIBLE
+                    }else {
+                        dataBinding.grpConverter.visibility = View.VISIBLE
+                        dataBinding.llLoading.visibility = View.GONE
+                    }
+                 }, 3000)
+
+        }
+
+    }
+
+    private fun changedata(s: Editable?) {
+        var data = viewModel.converterList.value
+        var dataNew = ArrayList<ConverterResponse>()
+        var dataOld = ArrayList<ConverterResponse>()
+        if (mData.isNullOrEmpty())
+            mData.addAll(data!!)
+        dataOld.addAll(mData)
+        for(i in dataOld!!.indices){
+            var singleData = ConverterResponse(dataOld[i].id, dataOld[i].currency, dataOld[i].value?.times(s.toString().toDouble()), dataOld[i].country)
+            dataNew.add(singleData)
+        }
+        mDataAdapter.submitList(dataNew)
+        mDataAdapter.notifyDataSetChanged()
     }
 
 

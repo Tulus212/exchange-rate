@@ -16,6 +16,26 @@
         android:layout_height="match_parent"
         android:layout_margin="16dp">
 
+        <LinearLayout
+            android:id="@+id/ll_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Loading..."
+                android:textColor="@color/black_100"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
         <TextView
             android:id="@+id/tv_base_title"
             android:layout_width="wrap_content"
@@ -38,6 +58,7 @@
             tools:ignore="ContentDescription" />
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -74,6 +95,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_base_country" />
 
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:hint="Input Value..."
+            android:inputType="numberDecimal"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_base_country"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_base_country" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_converter"
             android:layout_width="match_parent"
@@ -82,12 +115,19 @@
             android:overScrollMode="never"
             app:items="@{vm.converterList}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_converter_title"
-            app:layout_constraintBottom_toBottomOf="parent"
             tools:itemCount="5"
             tools:listitem="@layout/item_list_converter" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grp_converter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="rv_converter,tv_base_title,iv_base_country,tv_converter_title,et_input,linearLayout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

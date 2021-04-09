@@ -4,6 +4,7 @@
     <string name="base_currency">Base Currency</string>
     <string name="converter">Converter</string>
     <string name="home">Home</string>
+    <string name="history">History</string>
     <string name="profile">Profile</string>
     <string name="EUR">EUR</string>
     <string name="IDR">IDR</string>
